@@ -46,12 +46,6 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
-Contributing
+## Contributing
+
 Contributions are welcome! Please open an issue or submit a pull request.
-
-License
-This project is licensed under the terms of the MIT license.
-
-```
-
-```
