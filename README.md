@@ -15,6 +15,9 @@ This boilerplate provides a quick start for building applications using Next.js,
 
 ## Getting Started
 
+This boilerplate assumes you have run the **User Management Starter** from your [Supabase SQL Editor](https://supabase.com/dashboard/project/_/sql), and if you've followed along with the [Web-App Tutorial for Next.js](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) you'll have already added the triggers and functions for avatars, otherwise the
+SQL commands to keep your user avatars up to date can be found [here](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs#storage-management).
+
 1. Clone the repository:
 
 ```bash
