@@ -55,7 +55,7 @@ export default async function middleware(request) {
     }
   );
 
-  const { data } = await supabase.auth.getSession();
+  const { data } = await supabase.auth.getUser();
   const url = new URL(request.url);
 
   if (data.session) {

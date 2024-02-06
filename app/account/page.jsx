@@ -1,6 +1,7 @@
 import { supaServer } from "@/lib/supabase/server";
 import React from "react";
 import AccountForm from "./AccountForm";
+import { getProfile } from "@/lib/dal/user";
 
 const Page = async () => {
   const supabase = supaServer();
@@ -8,7 +9,11 @@ const Page = async () => {
     data: { session },
   } = await supabase.auth.getSession();
 
-  return session ? <AccountForm session={session} /> : null;
+  const id = session?.user.id;
+
+  let { data } = await getProfile(id);
+
+  return data ? <AccountForm profile={data} session={session} /> : null;
 };
 
 export default Page;

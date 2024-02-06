@@ -23,15 +23,14 @@ export const metadata = {
   title: "Supanext",
   description:
     "Brought to yo by Fox & Bear, boilerplate for Next.js with Tailwind CSS and Supabase",
-  icons: {
-    icon: "/images/favicon.ico",
-    shortcut: "/images/favicon.png",
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/images/favicon.ico" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

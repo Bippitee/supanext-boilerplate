@@ -2,6 +2,8 @@
 
 This boilerplate provides a quick start for building applications using Next.js, Tailwind CSS, and Supabase. It also includes basic components from Shadcn, and built-in authorization through GitHub, Google, and email OTP.
 
+We've made this primarily for our own use. But if you find it useful, fantastic!
+
 ## Features
 
 - **Next.js**: A React framework for building modern web applications.
@@ -15,13 +17,15 @@ This boilerplate provides a quick start for building applications using Next.js,
 
 ## Getting Started
 
-This boilerplate assumes you have run the **User Management Starter** from your [Supabase SQL Editor](https://supabase.com/dashboard/project/_/sql), and if you've followed along with the [Web-App Tutorial for Next.js](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) you'll have already added the triggers and functions for avatars, otherwise the
+This boilerplate assumes you have run the **User Management Starter** from your [Supabase SQL Editor](https://supabase.com/dashboard/project/_/sql).
+
+If you've followed along with the [Web-App Tutorial for Next.js](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) you'll have already added the triggers and functions for avatars, otherwise the
 SQL commands to keep your user avatars up to date can be found [here](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs#storage-management).
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Bippitee/Supanext-Boilerplate.git
+git clone https://github.com/Bippitee/supanext-boilerplate.git
 ```
 
 2. Install the dependencies

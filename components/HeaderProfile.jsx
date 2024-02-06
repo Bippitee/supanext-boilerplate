@@ -13,24 +13,18 @@ import {
   DropdownMenuSeparator as MenuSeparator,
   DropdownMenuGroup as MenuGroup,
 } from "./ui/dropdown-menu";
-import useProfile from "@/hooks/useProfile";
 import { SECURE_DIRECTORIES } from "@/lib/constants";
 import { toast } from "sonner";
+import { revalidateTag } from "next/cache";
+import revalidate from "@/lib/dal/revalidate";
 
-const HeaderProfile = ({ id }) => {
-  const {
-    isLoading,
-    profile,
-    error,
-    invalidate: invalidateProfile,
-  } = useProfile(id);
-
+const HeaderProfile = ({ id, profile }) => {
   const router = useRouter();
   const pathname = usePathname();
 
   const handleLogout = async () => {
-    invalidateProfile();
     const supabase = supaBrowser();
+    revalidate("profile");
     const { error } = await supabase.auth.signOut();
     if (error) toast.error("Error logging out:", error.message);
     router.refresh();
@@ -38,19 +32,7 @@ const HeaderProfile = ({ id }) => {
       router.replace("/auth?next=" + pathname);
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center">
-        <div className="w-8 h-8 border-t-4 border-r-4 border-primary rounded-full animate-spin duration-500 " />
-      </div>
-    );
-  } else if (error) {
-    return (
-      <div className="text-red-500">
-        <p>Error loading user data: {error}</p>
-      </div>
-    );
-  } else {
+  if (profile) {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger className="focus-visible:outline-0">
@@ -60,7 +42,7 @@ const HeaderProfile = ({ id }) => {
                 {getInitials(profile.full_name)}
               </AvatarFallback>
             )}
-            <AvatarImage src={profile.avatar_url} />
+            <AvatarImage src={profile.avatar_url} className="animate-pop-in" />
           </Avatar>
         </DropdownMenuTrigger>
 
@@ -92,6 +74,7 @@ const HeaderProfile = ({ id }) => {
     );
   }
 };
+// };
 
 export default HeaderProfile;
 
